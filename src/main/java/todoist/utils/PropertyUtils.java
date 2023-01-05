@@ -11,8 +11,8 @@ public class PropertyUtils {
     private static Properties properties = new Properties();
     private static Map<String, String> map = new HashMap<>();
 
-    static{
-        try{
+    static {
+        try {
             FileInputStream inputStream = new FileInputStream("src/test/resources/config.properties");
             properties.load(inputStream);
         } catch (IOException e) {
@@ -22,7 +22,7 @@ public class PropertyUtils {
         properties.forEach((key, value) -> map.put(String.valueOf(key), String.valueOf(value)));
     }
 
-    public static String getValue(String key){
-       return map.get(key);
+    public static String getValue(String key) {
+        return map.get(key);
     }
 }

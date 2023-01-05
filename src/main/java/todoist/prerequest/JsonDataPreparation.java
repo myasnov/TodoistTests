@@ -8,7 +8,7 @@ import java.io.File;
 import static io.restassured.RestAssured.given;
 
 public class JsonDataPreparation {
-    public static JsonPath getActiveTestsAsJson(){
+    public static JsonPath getActiveTestsAsJson() {
         Specifications.setSpec(Specifications.requestSpecCommon(), Specifications.responseSpecStatus200());
         return given()
                 .when()
@@ -17,7 +17,7 @@ public class JsonDataPreparation {
                 .extract().body().jsonPath();
     }
 
-    public static JsonPath getJsonFromFile(String fileName){
+    public static JsonPath getJsonFromFile(String fileName) {
         return new JsonPath(new File("src/test/resources/" + fileName));
     }
 }
