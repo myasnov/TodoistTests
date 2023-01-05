@@ -6,10 +6,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+
 public class PreviousApiVersionTest {
 
     @Test
-    public void v1IsNoLongerSupportedTest(){
+    public void v1IsNoLongerSupportedTest() {
         Specifications.setSpec(Specifications.requestSpecNotSupportedVersion(), Specifications.responseSpecStatus410());
         Response response = given().get();
         Assert.assertEquals("Response body for deprecated API version request is incorrect",
