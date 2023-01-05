@@ -5,7 +5,7 @@ import io.restassured.response.Response;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
 import todoist.enums.Endpoints;
-import todoist.prerequest.DataPreparation;
+import todoist.prerequest.JsonDataPreparation;
 import todoist.pojo.Task;
 import todoist.specifications.Specifications;
 import org.junit.Test;
@@ -47,7 +47,7 @@ public class GetTaskTest {
 
     @Test
     public void getAnActiveTaskTest() {
-        JsonPath tasks = DataPreparation.getActiveTestsAsJson();
+        JsonPath tasks = JsonDataPreparation.getActiveTestsAsJson();
         Specifications.setSpec(Specifications.requestSpecCommon(), Specifications.responseSpecStatus200());
         given()
                 .when()
