@@ -4,7 +4,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import org.junit.Test;
-import todoist.helpers.TaskHelper;
+import todoist.helpers.TaskDataHelper;
 import todoist.pojo.Task;
 import todoist.prerequest.JsonDataPreparation;
 import todoist.specifications.Specifications;
@@ -21,7 +21,7 @@ public class UpdateTaskTest {
         Specifications.setSpec(Specifications.requestSpecPost(), Specifications.responseSpecStatus200());
         Task updatedTask = given()
                 .body(new HashMap<String, String>() {{
-                    put("content", TaskHelper.generateRandomString());
+                    put("content", TaskDataHelper.generateRandomString());
                 }})
                 .when()
                 .post("/" + taskInfo.get("[0].id"))

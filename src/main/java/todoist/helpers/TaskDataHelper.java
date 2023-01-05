@@ -2,7 +2,7 @@ package todoist.helpers;
 
 import java.util.Random;
 
-public class TaskHelper {
+public class TaskDataHelper {
     public static String generateRandomString(){
             int leftLimit = 97;
             int rightLimit = 122;
