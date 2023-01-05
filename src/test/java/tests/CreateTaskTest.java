@@ -40,7 +40,6 @@ public class CreateTaskTest {
         Assert.assertNotNull("Task due date is null", newTask.getDue().getDate());
         Assert.assertFalse("Task due is_recurring is true", newTask.getDue().is_recurring());
         Assert.assertNotNull("Task due datetime is null", newTask.getDue().getDatetime());
-
     }
 
     @Test
