@@ -33,6 +33,12 @@ public class GetTaskTest {
             softAssertions.assertThat(task.getId()).isNotNull();
             softAssertions.assertThat(task.is_completed()).isFalse();
             softAssertions.assertThat(task.getContent()).isNotEqualTo("");
+            softAssertions.assertThat(task.getProject_id()).isNotNull();
+            softAssertions.assertThat(task.getCreator_id()).isNotNull();
+            softAssertions.assertThat(task.getCreated_at()).isNotNull();
+            softAssertions.assertThat(task.getProject_id()).isNotNull();
+            softAssertions.assertThat(task.getPriority()).isNotNull();
+            softAssertions.assertThat(task.getOrder()).isNotNull();
             softAssertions.assertThat(task.getUrl()).isEqualTo(PropertyUtils.getValue("taskUrl") + task.getId());
         });
 
