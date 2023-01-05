@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import todoist.helpers.TaskHelper;
 import todoist.pojo.Task;
-import todoist.prerequest.DataPreparation;
+import todoist.prerequest.JsonDataPreparation;
 import todoist.specifications.Specifications;
 
 import java.util.HashMap;
@@ -16,8 +16,8 @@ import static io.restassured.RestAssured.given;
 public class UpdateTaskTest {
 
     @Test
-    public void updateATaskTest(){
-        JsonPath taskInfo = DataPreparation.getActiveTestsAsJson();
+    public void updateATaskTest() {
+        JsonPath taskInfo = JsonDataPreparation.getActiveTestsAsJson();
         Specifications.setSpec(Specifications.requestSpecPost(), Specifications.responseSpecStatus200());
         Task updatedTask = given()
                 .body(new HashMap<String, String>() {{
@@ -32,12 +32,14 @@ public class UpdateTaskTest {
         Assert.assertEquals("Task url is incorrect", taskInfo.get("[0].url"), updatedTask.getUrl());
         Assert.assertEquals("Task is not active", taskInfo.get("[0].is_completed"), updatedTask.is_completed());
         Assert.assertEquals("Task due string is incorrect", taskInfo.get("[0].description"), updatedTask.getDescription());
+        Assert.assertEquals("Task due string is incorrect", taskInfo.get("[0].priority"), updatedTask.getPriority());
+        Assert.assertEquals("Task due string is incorrect", taskInfo.get("[0].order"), updatedTask.getOrder());
         Assert.assertNotEquals("Task name is incorrect", taskInfo.get("[0].content"), updatedTask.getContent());
     }
 
     @Test
-    public void updateATaskUsingEmptyReqParamTest(){
-        JsonPath taskInfo = DataPreparation.getActiveTestsAsJson();
+    public void updateATaskUsingEmptyReqParamTest() {
+        JsonPath taskInfo = JsonDataPreparation.getActiveTestsAsJson();
         Specifications.setSpec(Specifications.requestSpecPost(), Specifications.responseSpecStatus400());
         Response response = given()
                 .body(new HashMap<String, String>() {{
@@ -53,8 +55,8 @@ public class UpdateTaskTest {
     }
 
     @Test
-    public void updateATaskUsingEmptyBodyTest(){
-        JsonPath taskInfo = DataPreparation.getActiveTestsAsJson();
+    public void updateATaskUsingEmptyBodyTest() {
+        JsonPath taskInfo = JsonDataPreparation.getActiveTestsAsJson();
         Specifications.setSpec(Specifications.requestSpecPost(), Specifications.responseSpecStatus400());
         Response response = given()
                 .when()
