@@ -7,7 +7,7 @@ import java.io.File;
 
 import static io.restassured.RestAssured.given;
 
-public class DataPreparation {
+public class JsonDataPreparation {
     public static JsonPath getActiveTestsAsJson(){
         Specifications.setSpec(Specifications.requestSpecCommon(), Specifications.responseSpecStatus200());
         return given()
