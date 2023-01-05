@@ -43,6 +43,7 @@ public class Specifications {
                 .setBasePath(Endpoints.BASE_PATH.getPath())
                 .build();
     }
+
     public static ResponseSpecification responseSpecStatus200() {
         return new ResponseSpecBuilder()
                 .expectContentType(ContentType.JSON)
@@ -78,7 +79,7 @@ public class Specifications {
                 .build();
     }
 
-    public static void setSpec(RequestSpecification requestSpec, ResponseSpecification responseSpec){
+    public static void setSpec(RequestSpecification requestSpec, ResponseSpecification responseSpec) {
         RestAssured.requestSpecification = requestSpec;
         RestAssured.responseSpecification = responseSpec;
     }
