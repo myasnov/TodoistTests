@@ -1,6 +1,7 @@
 package todoist.specifications;
 
 import todoist.enums.Endpoints;
+import todoist.helpers.TaskDataHelper;
 import todoist.utils.PropertyUtils;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -24,7 +25,7 @@ public class Specifications {
                 .setBaseUri(Endpoints.BASE_URL.getPath())
                 .setBasePath(Endpoints.BASE_PATH.getPath())
                 .setContentType(ContentType.JSON)
-                .addHeader("X-Request-Id", "$(uuidgen)")
+                .addHeader("X-Request-Id", TaskDataHelper.generateRandomString())
                 .addHeader("Authorization", "Bearer " + PropertyUtils.getValue("token"))
                 .build();
     }
