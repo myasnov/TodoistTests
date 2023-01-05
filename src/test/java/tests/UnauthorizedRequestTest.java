@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 public class UnauthorizedRequestTest {
 
     @Test
-    public void unauthorizedRequestTest(){
+    public void unauthorizedRequestTest() {
         Specifications.setSpec(Specifications.requestSpecUnauthorized(), Specifications.responseSpecStatus401());
         Response response = given().get();
         Assert.assertEquals("Response body for unauthorized request is incorrect",
