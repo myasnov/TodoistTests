@@ -12,7 +12,7 @@ public class UnauthorizedRequestTest {
     @Test
     public void unauthorizedRequestTest() {
         Specifications.setSpec(Specifications.requestSpecUnauthorized(), Specifications.responseSpecStatus401());
-        Response response = given().get();
+        Response response = given().auth().none().get();
         Assert.assertEquals("Response body for unauthorized request is incorrect",
                 "Forbidden", response.getBody().asString());
     }
