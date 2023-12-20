@@ -28,4 +28,5 @@ public class Task {
     private Date created_at;
     private Due due;
     private String url;
+    private Integer duration;
 }
